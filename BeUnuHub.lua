@@ -30,7 +30,7 @@
 
 \-- Warning Label local warningLabel = Instance.new("TextLabel") warningLabel.Size = UDim2.new(1, 0, 0, 70) warningLabel.Position = UDim2.new(0, 0, 0, 10) warningLabel.BackgroundTransparency = 1 warningLabel.Text = "Are you sure you want to close the 'BeUnu Hub' script?" warningLabel.TextColor3 = Color3.fromRGB(255, 255, 255) warningLabel.TextScaled = true warningLabel.TextWrap = true warningLabel.Parent = warningFrame
 
-\-- Yes Button for Warning local yesButton = Instance.new("TextButton") yesButton.Size = UDim2.new(0, 100, 0, 40) yesButton.Position = UDim2.new(0, 40, 1, -50) yesButton.BackgroundColor3 = Color3.fromRGB(0, 120, 215) yesButton.Text = "Yes禁止: true yesButton.Text = "Yes" yesButton.TextColor3 = Color3.fromRGB(255, 255, 255) yesButton.TextScaled = true yesButton.Parent = warningFrame
+\-- Yes Button for Warning local yesButton = Instance.new("TextButton") yesButton.Size = UDim2.new(0, 100, 0, 40) yesButton.Position = UDim2.new(0, 40, 1, -50) yesButton.BackgroundColor3 = Color3.fromRGB(0, 120, 215) yesButton.Text = "Yes: true yesButton.Text = "Yes" yesButton.TextColor3 = Color3.fromRGB(255, 255, 255) yesButton.TextScaled = true yesButton.Parent = warningFrame
 
 \-- Add Rounded Corners to Yes Button local yesCorner = Instance.new("UICorner") yesCorner.CornerRadius = UDim.new(0, 5) yesCorner.Parent = yesButton
 
