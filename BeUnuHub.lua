@@ -311,7 +311,7 @@ local function createNotification(message)
     notifLabel.Size = UDim2.new(1, 0, 1, 0)
     notifLabel.BackgroundTransparency = 1
     notifLabel.Text = message
-    notifLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    notifLabel.TextColor3 = Color3.fromRGB(255, 251, 255)
     notifLabel.TextScaled = true
     notifLabel.TextWrap = true
     notifLabel.Parent = notification
@@ -376,7 +376,7 @@ local isMinimized = false
 minimizeButton.MouseButton1Click:Connect(function()
     if isMinimized then
         -- Restore GUI
-        mainFrame.Size = UDim2.new( mainFrame.Size.X.Offset, 0, 400)
+        mainFrame.Size = UDim2.new(0, mainFrame.Size.X.Offset, 0, 400) -- Fixed typo: stormyFrame to mainFrame
         leftFrame.Visible = true
         rightFrame.Visible = true
         resizeHandle.Visible = true
