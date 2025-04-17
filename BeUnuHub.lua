@@ -376,7 +376,7 @@ local isMinimized = false
 minimizeButton.MouseButton1Click:Connect(function()
     if isMinimized then
         -- Restore GUI
-        mainFrame.Size = UDim2.new( stormyFrame.Size.X.Offset, 0, 400)
+        mainFrame.Size = UDim2.new( mainFrame.Size.X.Offset, 0, 400)
         leftFrame.Visible = true
         rightFrame.Visible = true
         resizeHandle.Visible = true
