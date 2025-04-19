@@ -1,35 +1,31 @@
+repeat wait() until game:IsLoaded()
+
 local Players = game:GetService("Players")
 local UIS = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
 
 local plr = Players.LocalPlayer
 local gui = Instance.new("ScreenGui", plr:WaitForChild("PlayerGui"))
 gui.Name = "BeUnuHub"
 gui.ResetOnSpawn = false
 
--- Notification-style popup
 gui.Enabled = false
-wait(1)
+task.wait(1)
 gui.Enabled = true
 
 local mainFrame = Instance.new("Frame", gui)
 mainFrame.Size = UDim2.new(0, 600, 0, 400)
-mainFrame.Position = UDim2.new(0.5, 0, 0.5, 0) -- CENTER of screen
+mainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 mainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 mainFrame.Active = true
-mainFrame.Draggable = false
-
--- Rounded corners
 Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0, 10)
 
--- Tween pop-in
 mainFrame.Position = UDim2.new(0.5, 0, 1.2, 0)
-local TweenService = game:GetService("TweenService")
 TweenService:Create(mainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
 	Position = UDim2.new(0.5, 0, 0.5, 0)
 }):Play()
 
--- ✅ Drag from anywhere
 local dragging, dragInput, dragStart, startPos
 mainFrame.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -52,14 +48,12 @@ UIS.InputChanged:Connect(function(input)
 	end
 end)
 
--- Sidebar
 local sidebar = Instance.new("Frame", mainFrame)
 sidebar.Size = UDim2.new(0, 180, 1, 0)
 sidebar.Position = UDim2.new(0, 0, 0, 0)
 sidebar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 Instance.new("UICorner", sidebar)
 
--- Game Categories
 local categories = {
 	["Credits"] = {
 		{ name = "Discord Server (click to copy)", action = function() setclipboard("https://discord.gg/dmg4DtBk") end },
@@ -94,10 +88,23 @@ local categories = {
 	},
 	["Arsenal"] = {
 		{ name = "Solara", url = "https://raw.githubusercontent.com/JackyPoopoo/cartel/main/0000000000000000000000000000000000000000000000000" }
+	},
+	["Dead Rails"] = {
+		{ name = "Fern Hub", url = "https://raw.githubusercontent.com/Mrpopcatfrombupge/FernHub/refs/heads/main/DeadRailsFarm" },
+		{ name = "NEOX HUB", url = "https://raw.githubusercontent.com/hassanxzayn-lua/NEOXHUBMAIN/refs/heads/main/loader" }
+	},
+	["Azure Latch"] = {
+		{ name = "ScytheZx hub", url = "https://raw.githubusercontent.com/mokaEZF/Ez/refs/heads/main/aura" },
+		{ name = "Hn1 Hub", url = "https://raw.githubusercontent.com/Hn1-Hub/Hn1Hub-Loader/refs/heads/main/Loader" }
+	},
+	["Blue Lock Rivals"] = {
+		{ name = "Nicuse hub", url = "https://nicuse.xyz/MainHub.lua" },
+		{ name = "Nexus hub", url = "https://raw.githubusercontent.com/CrazyHub123/NexusHubRevival/refs/heads/main/Main.lua" }
 	}
 }
 
--- Right Content Panel
+-- The rest of your code stays the same...
+
 local contentFrame = Instance.new("Frame", mainFrame)
 contentFrame.Position = UDim2.new(0, 185, 0, 10)
 contentFrame.Size = UDim2.new(1, -195, 1, -50)
@@ -135,7 +142,6 @@ local function loadCategory(name)
 	end
 end
 
--- Create Sidebar Buttons
 local yOffset = 10
 for catName, _ in pairs(categories) do
 	local btn = Instance.new("TextButton", sidebar)
@@ -155,10 +161,8 @@ for catName, _ in pairs(categories) do
 	yOffset += 35
 end
 
--- Default tab
 loadCategory("Credits")
 
--- Footer
 local footer = Instance.new("TextLabel", mainFrame)
 footer.Text = "Made by BeUnu | #GGJS"
 footer.Font = Enum.Font.GothamSemibold
@@ -168,7 +172,6 @@ footer.Size = UDim2.new(1, 0, 0, 20)
 footer.Position = UDim2.new(0, 0, 1, -20)
 footer.BackgroundTransparency = 1
 
--- Ctrl Toggle to hide/show
 local hidden = false
 UIS.InputBegan:Connect(function(input)
 	if input.KeyCode == Enum.KeyCode.LeftControl then
